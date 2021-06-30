@@ -33,7 +33,7 @@
         "nsgId": "[resourceId(resourceGroup().name, 'Microsoft.Network/networkSecurityGroups', variables('networkSecurityGroupName'))]",
         "vnetId": "[resourceId(resourceGroup().name,'Microsoft.Network/virtualNetworks', variables('GoldenvirtualNetworkName'))]",
         "subnetRef": "[concat(variables('vnetId'), '/subnets/', variables('GoldensubnetName'))]",
-        "TeamsInstallUri": "https://raw.githubusercontent.com/Aldebarancloud/WVDCourse/main/Lab5GoldenImageConfiguration/GoldenImageConfiguration/TeamsforWVD/TeamsForWVDv2.ps1"
+        "TeamsInstallUri": "https://raw.githubusercontent.com/Aldebarancloud/WVD-Quickstart/main/Module-4-Golden-Image-Creation/VM-Windows-10-single-user/Golden-Image-With-Teams-for-WVD/Nested/TeamsFullInstallationforWVD.ps1"
     },
     "resources": [
         {
@@ -197,7 +197,7 @@
                     "fileUris": [
                         "[variables('TeamsInstallUri')]"
                     ],
-                    "commandToExecute": "[concat('powershell.exe -ExecutionPolicy Unrestricted -File TeamsForWVDv2.ps1')]"
+                    "commandToExecute": "[concat('powershell.exe -ExecutionPolicy Unrestricted -File TeamsFullInstallationforWVD.ps1')]"
 
                 },
                 "protectedSettings": {
