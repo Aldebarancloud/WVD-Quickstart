@@ -1,3 +1,3 @@
 Creation of Windows Server VM with an NVIDIA GPU Teams / One Drive and Graphic Card Configuration for AVD installed to create a golden image for Personal Destkop for Azure Virtual Desktop
 
-[![Deploy to Azure](https://aka.ms/deploytoazurebutton)](https://portal.azure.com/#create/Microsoft.Template/uri/)
+[![Deploy to Azure](https://aka.ms/deploytoazurebutton)](https://portal.azure.com/#create/Microsoft.Template/uri/https://raw.githubusercontent.com/Aldebarancloud/WVD-Quickstart/main/Module-4-Golden-Image-Creation/VM-WindowsServer-with-graphic-card/Nvdia-VM/Golden-Image-With-Teams-OneDrive-plus-Software/GoldenImageNVIDIA-Server.json)
