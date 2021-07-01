@@ -41,7 +41,8 @@
         "networkSecurityGroupName": "golden-nsg",
         "nsgId": "[resourceId(resourceGroup().name, 'Microsoft.Network/networkSecurityGroups', variables('networkSecurityGroupName'))]",
         "vnetId": "[resourceId(resourceGroup().name,'Microsoft.Network/virtualNetworks', variables('GoldenvirtualNetworkName'))]",
-        "subnetRef": "[concat(variables('vnetId'), '/subnets/', variables('GoldensubnetName'))]"
+        "subnetRef": "[concat(variables('vnetId'), '/subnets/', variables('GoldensubnetName'))]",
+        "TeamsInstallUri": "https://raw.githubusercontent.com/Aldebarancloud/WVD-Quickstart/main/Module-4-Golden-Image-Creation/VM-WindowsServer/Golden-Image-With-Teams-OneDrive-plus-Software/Nested/TeamsFullInstallationandOneDriveAdditionalSoftwareforWVD.ps1"
     },
     "resources": [
         {
@@ -185,6 +186,30 @@
                     "bootDiagnostics": {
                         "enabled": true
                     }
+                }
+            }
+        },
+        {
+            "type": "Microsoft.Compute/virtualMachines/extensions",
+            "apiVersion": "2019-03-01",
+            "name": "[concat(variables('GoldenImageName'), '/scriptextension')]",
+            "location": "[parameters('location')]",
+            "dependsOn": [
+                "[concat('Microsoft.Compute/virtualMachines/', variables('GoldenImageName'))]"
+            ],
+            "properties": {
+                "autoUpgradeMinorVersion": true,
+                "publisher": "Microsoft.Compute",
+                "type": "CustomScriptExtension",
+                "typeHandlerVersion": "1.9",
+                "settings": {
+                    "fileUris": [
+                        "[variables('TeamsInstallUri')]"
+                    ],
+                    "commandToExecute": "[concat('powershell.exe -ExecutionPolicy Unrestricted -File TeamsFullInstallationandOneDriveAdditionalSoftwareforWVD.ps1')]"
+
+                },
+                "protectedSettings": {
                 }
             }
         }
