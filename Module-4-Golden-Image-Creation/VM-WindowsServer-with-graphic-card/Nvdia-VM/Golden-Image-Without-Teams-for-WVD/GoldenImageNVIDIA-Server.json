@@ -111,7 +111,7 @@
         "nsgId": "[resourceId(resourceGroup().name, 'Microsoft.Network/networkSecurityGroups', variables('networkSecurityGroupName'))]",
         "vnetId": "[resourceId(resourceGroup().name,'Microsoft.Network/virtualNetworks', variables('GoldenvirtualNetworkName'))]",
         "subnetRef": "[concat(variables('vnetId'), '/subnets/', variables('GoldensubnetName'))]",
-        "TeamsInstallUri": ""add url
+        "TeamsInstallUri": "https://raw.githubusercontent.com/Aldebarancloud/WVD-Quickstart/main/Module-4-Golden-Image-Creation/VM-WindowsServer-with-graphic-card/Nvdia-VM/Golden-Image-Without-Teams-for-WVD/Nested/WVDandGraphicCardConfig.ps1"
     },
     "resources": [
         {
@@ -275,7 +275,7 @@
                     "fileUris": [
                         "[variables('TeamsInstallUri')]"
                     ],
-                    "commandToExecute": "[concat('powershell.exe -ExecutionPolicy Unrestricted -File TeamsForWVDv4gc.ps1')]" changefilename
+                    "commandToExecute": "[concat('powershell.exe -ExecutionPolicy Unrestricted -File WVDandGraphicCardConfig.ps1')]"
                 },
                 "protectedSettings": {
                 }
